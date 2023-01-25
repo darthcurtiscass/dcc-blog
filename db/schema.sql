@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS dccblog_db;
+CREATE DATABASE dccblog_db;
