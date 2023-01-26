@@ -1,11 +1,11 @@
 const sequelize = require('../config/connection');
-const {Category, User} = require('../models');
+const {Post, User} = require('../models');
 
-const categories = require('./categories.js')
+const posts = require('./post-seeds.js')
 
 const seedDatabase = async() => {
     await sequelize.sync({ force: true});
-    await Category.bulkCreate(categories);
+    await Post.bulkCreate(posts);
 
     await User.create({
         name: 'Dylan',
