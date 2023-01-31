@@ -22,10 +22,11 @@ Post.init(
         },    
         user_id: {
             references: {
-                model: 'User',
+                model: 'user',
                 key: 'id'
             }
         },
+        
     },
     {
         sequelize,
