@@ -14,7 +14,11 @@ Post.init(
 
         },
         date: {
-
+            type: DataTypes.STRING,
+            defaultValue: new Date().getMonth() + 1 + "/" + new Date().getDate() + "/" + new Date().getFullYear()
+        },
+        title: {
+            type: DataTypes.STRING
         },
         content: {
             type: DataTypes.TEXT,
@@ -30,7 +34,9 @@ Post.init(
     },
     {
         sequelize,
+        modelName: 'post',
         timestamps: false,
+        freezeTableName: true,
     }
 )
 

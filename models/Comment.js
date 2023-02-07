@@ -15,7 +15,8 @@ Comment.init(
 
         },
         date: {
-
+            type: DataTypes.STRING,
+            defaultValue: new Date().getMonth() + 1 + "/" + new Date().getDate() + "/" + new Date().getFullYear()
         },
         content: {
             type: DataTypes.TEXT,
@@ -33,12 +34,13 @@ Comment.init(
                 key: 'id'
             }
         }
-        
     },
     {
         sequelize,
+        modelName: 'comment',
         timestamps: false,
+        freezeTableName: true,
     }
 )
 
-module.exports = Post;
+module.exports = Comment;

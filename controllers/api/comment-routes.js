@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models')
 const auth = require('../../utils/auth');
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const commentData = await Comment.findAll();
         const comments = commentData.map((post) => post.get({ plain: true}));

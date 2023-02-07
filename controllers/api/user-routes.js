@@ -102,6 +102,16 @@ router.put('/:id', auth, async (req, res) => {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
 });
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 //route to delete a user based on their id.
 router.delete('/:id', async (req, res) => {
     const deleteUser = await User.destroy({ where: {id: req.params.id}})
