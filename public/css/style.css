@@ -35,19 +35,19 @@
     color: var(--light);
   }
   
-  main {
+  /* main {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-  }
-  
+  } */
+/*   
   aside {
     flex: 0;
     background-color: var(--tertiary);
     padding: 80px;
     text-align: left;
     color: var(--light);
-  }
+  } */
   
   nav {
     display: flex;
@@ -66,7 +66,7 @@
     background-color: var(--dark);
   }
   
-  .blog-post {
+  /* .blog-post {
     flex: 4;
     background-color: #fff;
     padding: 50px;
@@ -74,9 +74,9 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-  }
+  } */
   
-  .btn-style {
+  /* .btn-style {
     background: none;
     border: none;
     padding: 0;
@@ -85,37 +85,37 @@
     font-size: 100%;
     transition: color 0.1s;
     margin-left: 16px;
-  }
+  } */
   
   img {
     max-width: 100%;
     height: auto;
   }
   
-  .charecter {
+  /* .charecter {
     width: 50%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
-  }
+  } */
   
-  .charecter-details {
+  /* .charecter-details {
     text-align: center;
     padding: 10px 20px;
     font-weight: bold;
-  }
+  } */
   
   
-  .card {
+  /* .card {
     margin: 20px;
     flex: 0 1 300px;
     border: 7px double var(--dark);
     border-radius: 10px;
     background-color: var(--light);
     color: var(--dark);
-  }
+  } */
   
-  .login-card {
+  /* .login-card {
     margin: 0 0 20px 0;
     flex: 0 0 50%;
     max-width: 50%;
@@ -126,9 +126,9 @@
     border-width: thick;
     background-color: #577a7c;
     color: var(--light);
-  }
+  } */
   
-  .card header {
+  /* .card header {
     color: var(--light);
     font-weight: bold;
     text-transform: uppercase;
@@ -136,20 +136,20 @@
     background-color: var(--tertiary);
     padding: 0.625rem;
     border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
-  }
+  } */
   
-  .card-body {
+  /* .card-body {
     font-size: 1.4rem;
     text-align: center;
     font-weight: bold;
-  }
+  } */
   
 
   /* LAYOUT */
-  .container {
+  /* .container {
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
     align-items: center;
-  }
+  } */
   

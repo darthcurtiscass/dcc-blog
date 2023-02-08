@@ -20,6 +20,7 @@ router.get('/homepage', async (req, res) => {
                         'id',
                         'date',
                         'content',
+                        'user_id',
                     ]
                 },
             ]
@@ -40,4 +41,3 @@ router.get('/homepage', async (req, res) => {
 
 module.exports = router;
 
-module.exports = router;

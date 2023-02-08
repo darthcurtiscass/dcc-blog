@@ -11,6 +11,7 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
 
         },
         date: {
@@ -25,6 +26,7 @@ Post.init(
             allowNull: false,
         },    
         user_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'

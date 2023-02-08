@@ -26,6 +26,16 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/login', (req, res) => {
+  // res.status(200).json("work");
+  // console.log("working");
+  try {res.render('login');}
+  catch (err){
+      console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //user login route to establish a loggedIn session and save their user_id, user_name, and user_email.
 router.post('/login', async (req, res) => {
     try {
