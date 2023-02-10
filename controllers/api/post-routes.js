@@ -1,11 +1,20 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 const auth = require('../../utils/auth');
 //retrieve all posts
 router.get("/", auth, async (req, res) => {
     try {
-        const postsData = await Post.findAll();
+        const postsData = await Post.findAll({
+            include: [
+                {
+                    model: Comment,
+                }
+                
+            ]
+        });
+        
         const posts = postsData.map((post) => post.get({ plain: true}));
+        console.log(posts.comments);
         res.status(200).json(posts)
         // res.render('posts', { posts }) Use on home routes
         
@@ -19,9 +28,20 @@ router.get('/:id', async (req, res) => {
         const onePost = await Post.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            // include: [
+            //     {
+            //         model: User,
+            //         attributes: [
+            //             'id',
+            //             'name'
+            //         ]
+            //     }
+            // ]
         })
-        res.status(200).json(onePost)
+        // res.status(200).json(onePost)
+        const post = onePost.get({ plain: true });
+        res.render('post', {post, logged_in: req.session.logged_in})
     } catch (err) {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
@@ -30,6 +50,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', auth, async (req, res) => {
     try {
         const newPost = await Post.create({
+            title: req.body.title,
             content: req.body.content,
             user_id: req.session.user_id,
         });

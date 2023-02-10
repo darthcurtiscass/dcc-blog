@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const Post = require('../models/Post');
-const User = require('../models/User');
-const {Comment} = require('../models')
+// const Post = require('../models/Post');
+// const User = require('../models/User');
+const {Comment, Post, User} = require('../models')
 
 router.get('/homepage', async (req, res) => {
     try {
@@ -16,20 +16,16 @@ router.get('/homepage', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: [
-                        'id',
-                        'date',
-                        'content',
-                        'user_id',
-                    ]
                 },
             ]
         })
-        console.log(postData)
+        // console.log('========================')
+        // console.log(postData)
+        // console.log('=========================')
         const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(...posts);
+        console.dir(posts, {depth: null})
         res.render('homepage', { 
-            ...posts, 
+            posts, 
             loggedIn: req.session.loggedIn 
           });
 

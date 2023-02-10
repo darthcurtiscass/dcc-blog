@@ -1,19 +1,19 @@
 <div class="card">
-    {{#each posts as |post| }}
+  {{#each posts as |post|}}
     <div class="card-header">
-        <h3>{{post.user.name}}</h3>
-        <h4>{{post.date}}</h4>
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{post.title}}</h5>
-        <p class="card-text">{{post.content}}</p>
-        <a href="#" class="btn btn-primary">Comment</a>
-        <div class="card">
-            <div class="card-body">
-                {{post.comment.content}}
-            </div>
+      <a href="/api/posts/{{post.id}}" class="card-title">{{post.title}}</a>
+      <div class="card">
+        <div class="card-body">
+          {{post.content}}
         </div>
+      </div>
+      {{#each post.comments as |comment|}}
+      <div class="card-body">
+          {{comment.content}}
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
+  {{/each}}
 </div>
-{{!-- <script src="/js/posts.js"></script> --}}
