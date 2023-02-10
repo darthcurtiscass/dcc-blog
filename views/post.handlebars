@@ -1,9 +1,8 @@
 <div class="card">
-    <div class="card-header">
-      <p>{{post.user.name}}</p>
+    <div class="card-header"> 
     </div>
     <div class="card-body">
-     <h3>{{post.title}}</h3> 
+     <h3>{{post.title}}</h3>  <p>posted by: {{post.user.name}} on: {{post.date}}</p>
       <div class="card">
         <div class="card-body">
           {{post.content}}
@@ -16,6 +15,8 @@
 
 <div class="input-group input-group-lg">
   <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="comment">
   <button type="button" class="btn btn-success">Submit</button>
 </div>
+
+<script src="/js/comment.js"></script>

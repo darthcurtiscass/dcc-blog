@@ -16,12 +16,10 @@ router.get('/homepage', async (req, res) => {
                 },
                 {
                     model: Comment,
+                    
                 },
             ]
         })
-        // console.log('========================')
-        // console.log(postData)
-        // console.log('=========================')
         const posts = postData.map((post) => post.get({ plain: true }));
         console.dir(posts, {depth: null})
         res.render('homepage', { 

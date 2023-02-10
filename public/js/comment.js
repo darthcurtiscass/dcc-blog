@@ -1,12 +1,12 @@
-  const newPostHandler = async (event) => { //use this js file for the dashboard. You make new posts in the dashboard.
+const newCommentHandler = async (event) => { //edit this page
     event.preventDefault();
   
-    const content = document.querySelector('.card').value.trim();
+    const content = document.querySelector('#comment').value.trim();
     // const needed_funding = document.querySelector('#project-funding').value.trim();
     // const description = document.querySelector('#campaign-desc').value.trim();
   
     if (content) {
-      const response = await fetch(`/api/posts`, {
+      const response = await fetch(`/api/comments`, {
         method: 'POST',
         body: JSON.stringify({ content }),
         headers: {
@@ -24,5 +24,5 @@
   };
 
   document
-  .querySelector('.new-post-form')
-  .addEventListener('submit', newPostHandler);
+  .querySelector('.input-group')
+  .addEventListener('click', newCommentHandler);

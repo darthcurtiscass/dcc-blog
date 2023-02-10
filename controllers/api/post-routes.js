@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../../models');
+const { Post, Comment, User } = require('../../models');
 const auth = require('../../utils/auth');
 //retrieve all posts
 router.get("/", auth, async (req, res) => {
@@ -25,29 +25,23 @@ router.get("/", auth, async (req, res) => {
 //retrieve one post by its id
 router.get('/:id', async (req, res) => {
     try {
-        const onePost = await Post.findOne({
-            where: {
-                id: req.params.id
-            },
-            // include: [
-            //     {
-            //         model: User,
-            //         attributes: [
-            //             'id',
-            //             'name'
-            //         ]
-            //     }
-            // ]
+        const onePost = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User
+                }
+            ]
         })
         // res.status(200).json(onePost)
         const post = onePost.get({ plain: true });
+        console.dir(post, {depth: null})
         res.render('post', {post, logged_in: req.session.logged_in})
     } catch (err) {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
 });
 
-router.post('/', auth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
             title: req.body.title,
@@ -56,6 +50,7 @@ router.post('/', auth, async (req, res) => {
         });
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.post_id = newPost.id
         
         res.status(200).json(newPost);
             });
