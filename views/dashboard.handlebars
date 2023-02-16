@@ -1,4 +1,5 @@
-{{!-- <div class="card">
+<div class="card">
+  <h1>My Posts</h1>
   {{#each myPosts as |post|}}
     <div class="card-header">
     </div>
@@ -9,18 +10,21 @@
           {{post.content}}
         </div>
       </div>
-      <p>Comments:</p>{{#each post.comments as |comment|}}
-      <div class="card-body">
+      {{!-- <p>Comments:</p>{{#each post.comments as |comment|}} --}}
+      {{!-- <div class="card-body">
           {{comment.content}}
-        </div>
-        {{/each}}
+        </div> --}}
+        {{!-- {{/each}} --}}
     </div>
   {{/each}}
-</div> --}}
+</div>
+<div class="input-group input-group-lg">
+  <input type="text" class="form-control" id="form-title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+</div>
 <input type="hidden" name="post-id" value="{{post.id}}"/>
 <div class="input-group input-group-lg">
     <button class="btn btn-outline-secondary" type="button" id="button-addon1">Create New Post</button>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+  <input type="text" class="form-control" id="form-content" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 </div>
 
 <script src="/js/posts.js"></script>

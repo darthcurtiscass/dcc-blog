@@ -5,20 +5,20 @@ const {Comment, Post, User} = require('../models')
 
 router.get('/', async (req, res) => {
     try {
-        const dashData = await User.findAll(req.body, {
+        const dashData = await Post.findAll(req.body, {
             where: {
                 user_id:  req.session.user_id
             },
-            include: [
-                {
-                    model: Post,
-                    attributes: [
-                        'id',
-                        'title',
-                        'content',
-                    ]
-                }
-            ]
+            // include: [
+            //     {
+            //         model: Post,
+            //         attributes: [
+            //             'id',
+            //             'title',
+            //             'content',
+            //         ]
+            //     }
+            // ]
         });
         const myPosts = dashData.map((posts) => posts.get({ plain: true }));
         console.dir(myPosts, {depth: null})

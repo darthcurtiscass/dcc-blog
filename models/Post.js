@@ -19,7 +19,8 @@ Post.init(
             defaultValue: new Date().getMonth() + 1 + "/" + new Date().getDate() + "/" + new Date().getFullYear()
         },
         title: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         content: {
             type: DataTypes.TEXT,
