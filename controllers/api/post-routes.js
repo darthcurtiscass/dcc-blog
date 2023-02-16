@@ -14,7 +14,7 @@ router.get("/", auth, async (req, res) => {
         });
         
         const posts = postsData.map((post) => post.get({ plain: true}));
-        console.log(posts.comments);
+        console.log("New Posts", posts);
         res.status(200).json(posts)
         // res.render('posts', { posts }) Use on home routes
         

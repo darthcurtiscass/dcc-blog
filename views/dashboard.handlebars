@@ -1,0 +1,26 @@
+{{!-- <div class="card">
+  {{#each myPosts as |post|}}
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+      <a href="/api/posts/{{post.id}}" class="card-title">{{post.title}}</a>
+      <div class="card">
+        <div class="card-body">
+          {{post.content}}
+        </div>
+      </div>
+      <p>Comments:</p>{{#each post.comments as |comment|}}
+      <div class="card-body">
+          {{comment.content}}
+        </div>
+        {{/each}}
+    </div>
+  {{/each}}
+</div> --}}
+<input type="hidden" name="post-id" value="{{post.id}}"/>
+<div class="input-group input-group-lg">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Create New Post</button>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+</div>
+
+<script src="/js/posts.js"></script>

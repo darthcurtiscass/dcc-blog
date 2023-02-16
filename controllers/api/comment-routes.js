@@ -12,14 +12,14 @@ router.get("/", async (req, res) => {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
 });
-//retrieve one post by its id
+//retrieve one comment by its id
 router.get('/:id', async (req, res) => {
     try {
         const oneComment = await Comment.findOne({
             where: {
                 id: req.params.id
             }
-        })
+        });
         res.status(200).json(oneComment)
     } catch (err) {
         res.status(500).json({message:'an error occurred, please try again.'})
@@ -27,11 +27,11 @@ router.get('/:id', async (req, res) => {
 });
 //create a new comment
 router.post('/', async (req, res) => {
+    const body = req.body
     try {
         const newComment = await Comment.create({
-            content: req.body.content,
+            ...body,
             user_id: req.session.user_id,
-            post_id: req.session.post_id,
         });
         req.session.save(() => {
             req.session.loggedIn = true;

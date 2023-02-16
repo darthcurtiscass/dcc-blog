@@ -21,6 +21,7 @@ router.get('/homepage', async (req, res) => {
             ]
         })
         const posts = postData.map((post) => post.get({ plain: true }));
+        console.log(posts)
         console.dir(posts, {depth: null})
         res.render('homepage', { 
             posts, 

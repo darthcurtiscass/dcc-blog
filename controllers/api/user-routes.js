@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
             }); 
         } catch (err) {
             console.log(err);
-            console.log(newUserData);
+            console.log(newUser);
             res.status(500).json({message:'an error occurred, please try again.', err})
         }
 });

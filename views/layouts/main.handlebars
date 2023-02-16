@@ -9,13 +9,13 @@
     <body>
         <nav class="text-bg-primary p-3">
             <a href="/homepage">Home</a>
-            {{!-- {{#if loggedIn}} --}}
+            {{#if loggedIn}}
             <button id="logout" class="btn btn-dark">Logout</button>
             {{!-- <a href="/api/users/logout">Logout</a> --}}
             <a href="/dashboard">Dashboard</a>
-            {{!-- {{else}} --}}
+            {{else}}
             <a href="/api/login">Signup</a>
-            {{!-- {{/if}} --}}
+            {{/if}}
         </nav>
         <h2 class="text-center">Blogo Baggins<span class="badge bg-secondary"></span></h2>
         <main>
