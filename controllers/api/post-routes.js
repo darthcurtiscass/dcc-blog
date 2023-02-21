@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
         const newPost = await Post.create({
             id: req.body.id,
@@ -75,7 +75,7 @@ router.put('/post/:id', async (req, res) => {
     }
 });
 
-router.get('/mypost/:id', async (req, res) => {
+router.get('/mypost/:id', auth, async (req, res) => {
     try {
       const userPosts = await Post.findOne({
         where: {
@@ -94,7 +94,7 @@ router.get('/mypost/:id', async (req, res) => {
     }
   });
 
-router.delete('/mypost/delete/:id', async (req, res) => {
+router.delete('/mypost/delete/:id', auth, async (req, res) => {
     const deletePost = await Post.destroy({ where: {id: req.params.id}})
       return res.json(deletePost)
   });   
