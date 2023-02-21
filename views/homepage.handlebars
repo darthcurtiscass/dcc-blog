@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card bg-success">
   {{#each posts as |post|}}
-    <div class="card-header">
+    <div class="card-header bg-success">
     </div>
-    <div class="card-body">
+    <div class="card-body p-3 mb-2 bg-success">
       <a href="/api/posts/{{post.id}}" class="card-title">{{post.title}}</a>
       <div class="card">
         <div class="card-body">
@@ -10,7 +10,8 @@
         </div>
       </div>
       <p>Comments:</p>{{#each post.comments as |comment|}}
-      <div class="card-body">
+      <div class="card p-3 mb-2 bg-info text-dark">
+        <p class="fw-bold">{{comment.user.name}} <span class="fw-light">commented on</span> {{comment.date}}</p>
           {{comment.content}}
         </div>
         {{/each}}

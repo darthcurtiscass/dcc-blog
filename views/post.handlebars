@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header"> 
     </div>
-    <div class="card-body">
+    <div class="card-body p-3 mb-2 bg-success">
      <h3>{{post.title}}</h3>  <p>posted by: {{post.user.name}} on: {{post.date}}</p>
       <div class="card">
         <div class="card-body">
@@ -15,7 +15,7 @@
 
 <div class="input-group input-group-lg">
   <input type="hidden" name="post-id" value="{{post.id}}"/>
-  <span class="input-group-text" id="inputGroup-sizing-lg">Comment</span>
+  <span class="input-group-text bg-info text-dark" id="inputGroup-sizing-lg">Comment</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="comment">
   <button type="button" class="btn btn-success">Submit</button>
 </div>

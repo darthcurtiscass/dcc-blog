@@ -9,19 +9,8 @@ router.get('/', async (req, res) => {
             where: {
                 user_id:  req.session.user_id
             },
-            // include: [
-            //     {
-            //         model: Post,
-            //         attributes: [
-            //             'id',
-            //             'title',
-            //             'content',
-            //         ]
-            //     }
-            // ]
         });
         const myPosts = dashData.map((posts) => posts.get({ plain: true }));
-        console.dir(myPosts, {depth: null})
         res.render('dashboard', { 
             myPosts, 
             loggedIn: req.session.loggedIn 

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const {Post, User}  = require('../../models');
 const auth = require('../../utils/auth')
 //retrieve all users
 router.get('/', async (req, res) => {
@@ -112,6 +112,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 //route to delete a user based on their id.
 router.delete('/:id', async (req, res) => {
     const deleteUser = await User.destroy({ where: {id: req.params.id}})

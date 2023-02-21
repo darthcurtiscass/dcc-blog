@@ -1,30 +1,33 @@
-<div class="card">
+<div class="card bg-success">
   <h1>My Posts</h1>
   {{#each myPosts as |post|}}
     <div class="card-header">
     </div>
     <div class="card-body">
-      <a href="/api/posts/{{post.id}}" class="card-title">{{post.title}}</a>
+      <a href="/api/posts/mypost/{{post.id}}" class="card-title">{{post.title}}</a>
       <div class="card">
         <div class="card-body">
           {{post.content}}
         </div>
       </div>
-      {{!-- <p>Comments:</p>{{#each post.comments as |comment|}} --}}
-      {{!-- <div class="card-body">
-          {{comment.content}}
-        </div> --}}
-        {{!-- {{/each}} --}}
     </div>
   {{/each}}
-</div>
-<div class="input-group input-group-lg">
-  <input type="text" class="form-control" id="form-title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-</div>
-<input type="hidden" name="post-id" value="{{post.id}}"/>
-<div class="input-group input-group-lg">
-    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Create New Post</button>
-  <input type="text" class="form-control" id="form-content" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+<div>
+  <div class="input-group input-group-lg">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Post ID</span>
+    <input type="text" class="form-control" id="unique-id" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+  </div>
+  <div class="input-group input-group-lg">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+    <input type="text" class="form-control" id="form-title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+  </div>
+  <input type="hidden" name="post-id" value="{{post.id}}"/>
+  <div class="input-group input-group-lg">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Content</span>
+    <input type="text" class="form-control" id="form-content" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    <button class="btn btn-outline-secondary bg-info text-dark" type="button" id="button-addon1">Create New Post</button>
+    </div>
+  </div>
 </div>
 
 <script src="/js/posts.js"></script>

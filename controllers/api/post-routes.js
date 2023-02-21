@@ -44,6 +44,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
+            id: req.body.id,
             title: req.body.title,
             content: req.body.content,
             user_id: req.session.user_id,
@@ -60,20 +61,40 @@ router.post('/', async (req, res) => {
         }
     });
 //update post by id
-router.put('/:id', async (req, res) => {
+router.put('/post/:id', async (req, res) => {
     try {
         const updatePost = await Post.update(req.body, {
             where: {
                 id: req.params.id
             }
         })
-        res.json(updatePost)
+        const response = req.body
+        return res.status(200).json(response);
     } catch (err) {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.get('/mypost/:id', async (req, res) => {
+    try {
+      const userPosts = await Post.findOne({
+        where: {
+            id: req.params.id
+        },
+      })
+      const postSingular = userPosts.get({ plain: true });
+          console.dir(postSingular, {depth: null})
+        //   res.status(200).json(userPosts);
+          res.render('userposts', {
+            postSingular, 
+            loggedIn: req.session.loggedIn
+          })
+    } catch (err) {
+      res.status(500).json({message:'an error occurred, please try again. you idiot', err})
+    }
+  });
+
+router.delete('/mypost/delete/:id', async (req, res) => {
     const deletePost = await Post.destroy({ where: {id: req.params.id}})
       return res.json(deletePost)
   });   

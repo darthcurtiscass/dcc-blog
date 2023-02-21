@@ -1,6 +1,7 @@
   const newPostHandler = async (event) => { //use this js file for the dashboard. You make new posts in the dashboard.
     event.preventDefault();
   
+    const id = document.querySelector('#unique-id').value.trim();
     const content = document.querySelector('#form-content').value.trim();
     const title = document.querySelector('#form-title').value.trim(); //Change the HTML form for title elements, so that it has a different name from content in the class or refer to a different id.
     // const needed_funding = document.querySelector('#project-funding').value.trim();
@@ -11,7 +12,7 @@
     if (title && content) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({ content, title }),
+        body: JSON.stringify({ id, content, title }),
         headers: {
           'Content-Type': 'application/json',
         },
