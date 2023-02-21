@@ -1,8 +1,7 @@
 const editPostHandler = async (event) => {
+  event.preventDefault();
   //use this js file for the dashboard. You make new posts in the dashboard.
   //Change the HTML form for title elements, so that it has a different name from content in the class or refer to a different id.
-  
-
   const id = document.querySelector("#unique-id").value.trim();
   const content = document.querySelector("#edit-content").value.trim();
   const title = document.querySelector("#edit-title").value.trim();

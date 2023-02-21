@@ -12,12 +12,12 @@
 </div>
 
 {{!-- Use this to display an individual post and a comment text box for the post. --}}
-{{#if loggedIn}}
+
 <div class="input-group input-group-lg">
   <input type="hidden" name="post-id" value="{{post.id}}"/>
   <span class="input-group-text bg-info text-dark" id="inputGroup-sizing-lg">Comment</span>
   <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="comment">
   <button type="button" class="btn btn-success">Submit</button>
 </div>
-{{/if}}
+
 <script src="/js/comment.js"></script>
