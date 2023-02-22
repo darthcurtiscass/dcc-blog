@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
         // res.status(200).json(onePost)
         const post = onePost.get({ plain: true });
         console.dir(post, {depth: null})
-        res.render('post', {post, logged_in: req.session.logged_in})
+        res.render('post', {post, logged_in: req.session.logged_in});
     } catch (err) {
         res.status(500).json({message:'an error occurred, please try again.'})
     }
