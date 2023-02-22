@@ -44,3 +44,7 @@ document
   .addEventListener("click", editPostHandler);
 
 document.querySelector("#delete").addEventListener("click", deletePostHandler);
+
+//window.location.href - to retreive specific characters from URL
+
+//document.URL
