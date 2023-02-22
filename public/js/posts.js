@@ -19,7 +19,7 @@
       });
       if (response.ok) {
         console.log(content)
-        document.location.replace('/homepage');
+        document.location.replace('/');
        
       } else {
         alert('Failed to create post');

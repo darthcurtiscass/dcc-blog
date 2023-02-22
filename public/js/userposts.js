@@ -14,7 +14,7 @@ const editPostHandler = async (event) => {
   });
   if (response.ok) {
     console.log(title, content);
-    document.location.replace("/homepage");
+    document.location.replace("/");
   } else {
     console.log(title, content);
     alert("Failed to update post");

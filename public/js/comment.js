@@ -18,7 +18,7 @@ const newCommentHandler = async (event) => { //edit this page
       if (response.ok) {
         console.log(content)
          console.log("id", post_id)
-        document.location.replace('/homepage');
+        document.location.replace('/');
        
       } else {
         alert('Failed to create post');
